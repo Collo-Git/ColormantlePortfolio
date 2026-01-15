@@ -1662,3 +1662,68 @@ a, button {
     }
 
 }        
+
+/* =========================================
+   MOBILE RESPONSIVENESS FIX – FLYERS PAGE
+   Safe override (does not break desktop)
+========================================= */
+
+/* Ensure proper scaling */
+* {
+  box-sizing: border-box;
+}
+
+/* Container fix */
+.flyers-section,
+.flyers-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+/* Grid responsiveness */
+.flyers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Individual flyer cards */
+.flyer-item {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Images scale correctly */
+.flyer-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .flyers-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .flyer-item img {
+    border-radius: 14px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .flyers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large desktops remain untouched */
+@media (min-width: 1200px) {
+  .flyers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
